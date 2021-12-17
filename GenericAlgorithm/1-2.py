@@ -113,21 +113,21 @@ for learn_idx in range(population_number):
 
     # 오차합을 구하는 과정.
     for fit_idx in range(0, 100):
-        error_sum += pow(learning_label_list[fit_idx] - label[fit_idx], 2) # 오차합은 제곱을 해준다.
+        error_sum += pow(learning_label_list[fit_idx] - label[fit_idx], 2)  # 오차합은 제곱을 해준다.
 
-    error_sum_list.append((learn_idx, error_sum))
+    error_sum_list.append((learn_idx, error_sum)) # 구한 오차합을, 현재 population 의 idx와 함께 저장해준다.
 
-for i in range(population_number):
-    if fitness_ratio_min > error_sum_list[i][1]:
-        fitness_ratio_min = error_sum_list[i][1]
 
 error_sum_list.sort(key=lambda x: x[1]) # 튜플을 두번째 원소를 이용해, 오름차순 정렬
-print("Best 1 Fitness :")
+print("Best 1 Fitness : ", error_sum_list[0][1])
+print("Best 2 Fitness : ", error_sum_list[1][1])
+print("Best 3 Fitness : ", error_sum_list[2][1])
+print("Best 4 Fitness : ", error_sum_list[3][1])
 
+# 그래프 각각의 fig에 추가함.
 visualize_grid(x_0, y_0, z_0, x_1, y_1, z_1, w1_population[error_sum_list[0][0]], w2_population[error_sum_list[0][0]], w3_population[error_sum_list[0][0]], b_population[error_sum_list[0][0]], ax)
 visualize_grid(x_0, y_0, z_0, x_1, y_1, z_1, w1_population[error_sum_list[1][0]], w2_population[error_sum_list[1][0]], w3_population[error_sum_list[1][0]], b_population[error_sum_list[1][0]], ax2)
 visualize_grid(x_0, y_0, z_0, x_1, y_1, z_1, w1_population[error_sum_list[2][0]], w2_population[error_sum_list[2][0]], w3_population[error_sum_list[2][0]], b_population[error_sum_list[2][0]], ax3)
 visualize_grid(x_0, y_0, z_0, x_1, y_1, z_1, w1_population[error_sum_list[3][0]], w2_population[error_sum_list[3][0]], w3_population[error_sum_list[3][0]], b_population[error_sum_list[3][0]], ax4)
-
 
 plt.show()
