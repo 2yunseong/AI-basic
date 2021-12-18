@@ -119,15 +119,13 @@ def visualize_grid(x_0, y_0, z_0, x_1, y_1, z_1, w1, w2, w3, b, ax):
 data = pd.read_csv("p1_training_data.csv") # 데이터 읽기
 np_data = np.array(data) # np Array 로 변경
 
-fig = plt.figure() # 새로운 figure 생성
-fig2 = plt.figure()
-fig3 = plt.figure()
-fig4 = plt.figure()
+fig_list = list()
+for i in range(1):
+    fig_list.append(plt.figure())
 
-ax = fig.add_subplot(111, projection='3d')
-ax2 = fig2.add_subplot(111, projection='3d')
-ax3 = fig3.add_subplot(111, projection='3d')
-ax4 = fig4.add_subplot(111, projection='3d')
+ax_list = list()
+for i in range(1):
+    ax_list.append(fig_list[i].add_subplot(111, projection="3d"))
 
 ## positive samples
 x_1 = np_data[0:50,0]
@@ -211,13 +209,16 @@ for generation in range(max_generation_number):
     print("3rd fitness score =", error_sum_list[2][1])
     print("4th fitness score =", error_sum_list[3][1])
 
-    # 10번째 개체의 fitness 가 0.0001이하로 떨어지면, 종료시킨다.
-    if error_sum_list[9][1] < 0.0001 : break
+    # 각 세대에서 선택될 개체들 중에서, 가장 fitness가 낮은 10번째 개체의 fitness의 값이 0.0001보다 작으면, 정확하게 분류했다 판단하고 종료합니다.
+    if error_sum_list[9][1] < 0.0001:
+        print("이번 세대의 10번째 개체의 fitness :", error_sum_list[9][1])
+        break
 
-    # 그래프 각각의 fig에 추가함.
-visualize_grid(x_0, y_0, z_0, x_1, y_1, z_1, w1_population[error_sum_list[0][0]], w2_population[error_sum_list[0][0]], w3_population[error_sum_list[0][0]], b_population[error_sum_list[0][0]], ax)
-visualize_grid(x_0, y_0, z_0, x_1, y_1, z_1, w1_population[error_sum_list[1][0]], w2_population[error_sum_list[1][0]], w3_population[error_sum_list[1][0]], b_population[error_sum_list[1][0]], ax2)
-visualize_grid(x_0, y_0, z_0, x_1, y_1, z_1, w1_population[error_sum_list[2][0]], w2_population[error_sum_list[2][0]], w3_population[error_sum_list[2][0]], b_population[error_sum_list[2][0]], ax3)
-visualize_grid(x_0, y_0, z_0, x_1, y_1, z_1, w1_population[error_sum_list[3][0]], w2_population[error_sum_list[3][0]], w3_population[error_sum_list[3][0]], b_population[error_sum_list[3][0]], ax4)
+
+
+# best fitness 를 가지는 것 시각화.
+visualize_grid(x_0, y_0, z_0, x_1, y_1, z_1, w1_population[error_sum_list[0][0]],
+                       w2_population[error_sum_list[0][0]], w3_population[error_sum_list[0][0]],
+                       b_population[error_sum_list[0][0]], ax_list[0])
 
 plt.show()

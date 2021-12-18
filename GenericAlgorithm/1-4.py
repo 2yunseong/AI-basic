@@ -6,7 +6,7 @@ import pandas as pd
 import random
 import math
 
-max_generation_number = 40 # 최대로 학습할 세대
+max_generation_number = 3 # 최대로 학습할 세대
 population_number = 90 # 세대 당 개체 수
 select_number = 10 # 선택할 개체의 갯수
 # 첫 세대의 가중치를 랜덤으로 생성하고, 배열로 반환.
@@ -119,15 +119,13 @@ def visualize_grid(x_0, y_0, z_0, x_1, y_1, z_1, w1, w2, w3, b, ax):
 data = pd.read_csv("p1_training_data.csv") # 데이터 읽기
 np_data = np.array(data) # np Array 로 변경
 
-fig = plt.figure() # 새로운 figure 생성
-fig2 = plt.figure()
-fig3 = plt.figure()
-fig4 = plt.figure()
+fig_list = list()
+for i in range(8):
+    fig_list.append(plt.figure())
 
-ax = fig.add_subplot(111, projection='3d')
-ax2 = fig2.add_subplot(111, projection='3d')
-ax3 = fig3.add_subplot(111, projection='3d')
-ax4 = fig4.add_subplot(111, projection='3d')
+ax_list = list()
+for i in range(8):
+    ax_list.append(fig_list[i].add_subplot(111, projection="3d"))
 
 ## positive samples
 x_1 = np_data[0:50,0]
@@ -210,14 +208,33 @@ for generation in range(max_generation_number):
     print("2nd fitness score =", error_sum_list[1][1])
     print("3rd fitness score =", error_sum_list[2][1])
     print("4th fitness score =", error_sum_list[3][1])
+    # 각각 2, 3 세대의 값 시각화.
+    if generation == 1:
+        visualize_grid(x_0, y_0, z_0, x_1, y_1, z_1, w1_population[error_sum_list[0][0]],
+                       w2_population[error_sum_list[0][0]], w3_population[error_sum_list[0][0]],
+                       b_population[error_sum_list[0][0]], ax_list[0])
+        visualize_grid(x_0, y_0, z_0, x_1, y_1, z_1, w1_population[error_sum_list[1][0]],
+                       w2_population[error_sum_list[1][0]], w3_population[error_sum_list[1][0]],
+                       b_population[error_sum_list[1][0]], ax_list[1])
+        visualize_grid(x_0, y_0, z_0, x_1, y_1, z_1, w1_population[error_sum_list[2][0]],
+                       w2_population[error_sum_list[2][0]], w3_population[error_sum_list[2][0]],
+                       b_population[error_sum_list[2][0]], ax_list[2])
+        visualize_grid(x_0, y_0, z_0, x_1, y_1, z_1, w1_population[error_sum_list[3][0]],
+                       w2_population[error_sum_list[3][0]], w3_population[error_sum_list[3][0]],
+                       b_population[error_sum_list[3][0]], ax_list[3])
+    elif generation == 2:
+        visualize_grid(x_0, y_0, z_0, x_1, y_1, z_1, w1_population[error_sum_list[0][0]],
+                       w2_population[error_sum_list[0][0]], w3_population[error_sum_list[0][0]],
+                       b_population[error_sum_list[0][0]], ax_list[4])
+        visualize_grid(x_0, y_0, z_0, x_1, y_1, z_1, w1_population[error_sum_list[1][0]],
+                       w2_population[error_sum_list[1][0]], w3_population[error_sum_list[1][0]],
+                       b_population[error_sum_list[1][0]], ax_list[5])
+        visualize_grid(x_0, y_0, z_0, x_1, y_1, z_1, w1_population[error_sum_list[2][0]],
+                       w2_population[error_sum_list[2][0]], w3_population[error_sum_list[2][0]],
+                       b_population[error_sum_list[2][0]], ax_list[6])
+        visualize_grid(x_0, y_0, z_0, x_1, y_1, z_1, w1_population[error_sum_list[3][0]],
+                       w2_population[error_sum_list[3][0]], w3_population[error_sum_list[3][0]],
+                       b_population[error_sum_list[3][0]], ax_list[7])
 
-    # 10번째 개체의 fitness 가 0.0001이하로 떨어지면, 종료시킨다.
-    if error_sum_list[9][1] < 0.0001 : break
-
-    # 그래프 각각의 fig에 추가함.
-visualize_grid(x_0, y_0, z_0, x_1, y_1, z_1, w1_population[error_sum_list[0][0]], w2_population[error_sum_list[0][0]], w3_population[error_sum_list[0][0]], b_population[error_sum_list[0][0]], ax)
-visualize_grid(x_0, y_0, z_0, x_1, y_1, z_1, w1_population[error_sum_list[1][0]], w2_population[error_sum_list[1][0]], w3_population[error_sum_list[1][0]], b_population[error_sum_list[1][0]], ax2)
-visualize_grid(x_0, y_0, z_0, x_1, y_1, z_1, w1_population[error_sum_list[2][0]], w2_population[error_sum_list[2][0]], w3_population[error_sum_list[2][0]], b_population[error_sum_list[2][0]], ax3)
-visualize_grid(x_0, y_0, z_0, x_1, y_1, z_1, w1_population[error_sum_list[3][0]], w2_population[error_sum_list[3][0]], w3_population[error_sum_list[3][0]], b_population[error_sum_list[3][0]], ax4)
 
 plt.show()
