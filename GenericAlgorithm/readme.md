@@ -14,7 +14,7 @@
 
 population수는 모든 세대가 같게 합니다.
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/49d8e121-b2e8-4f9e-897a-daf759f55dad/Untitled.png)
+![Untitled](./image/snn.png)
 
 ### 초기 세대 설정
 
@@ -120,6 +120,6 @@ Generic Algorithm을 종료하는 조건은, 주어진 목표에 다다랐는지
 
 fitness score를 검사해, 값이 0.0001 보다 작으면, 적합한 model로 판단합니다.
 
-![1-5output.JPG](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/e78cf024-d13e-46be-819a-c12e570d713f/1-5output.jpg)
+![1-5output.JPG](./image/1-5output.JPG)
 
-![1-5fig.JPG](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/aa138778-aa17-4929-bd54-879de5c5c460/1-5fig.jpg)
+![1-5fig.JPG](./image/1-5fig.JPG)
