@@ -20,19 +20,26 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a32ec5f9-8b0a-4a67-9d77-8d9fceeb76e9" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../GenericAlgorithm/1-3.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/2-1.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../GenericAlgorithm/1-2.py" beforeDir="false" afterPath="$PROJECT_DIR$/../GenericAlgorithm/1-2.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../GenericAlgorithm/1-3.py" beforeDir="false" afterPath="$PROJECT_DIR$/../GenericAlgorithm/1-3.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
-  <component name="ProjectId" id="22NKnrsq61eTLcUZUaSPwBC9V90" />
+  <component name="ProjectId" id="22OYevtW53Hg5wyR5DpnkIF3eDT" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -40,7 +47,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/.." />
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -63,5 +70,12 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="982" y="443" key="FileChooserDialogImpl" timestamp="1639710257593">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="982" y="443" key="FileChooserDialogImpl/0.0.2560.1400@0.0.2560.1400" timestamp="1639710257593" />
   </component>
 </project>
